@@ -1,11 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
+import { setCurrentUser } from "../actions/user";
 import StyledMapMarker from "./styles/MapMarker";
 
-const MapMarker = ({ user }) => (
+export const MapMarker = ({ user, setCurrentUser }) => (
     <StyledMapMarker>
-        <div className='pin' />
+        <div className='pin' onClick={() => setCurrentUser(user)} />
         <div className='details'>
             <span>
                 <strong>{user.name}</strong>
@@ -18,6 +20,10 @@ const MapMarker = ({ user }) => (
 
 MapMarker.propTypes = {
     user: PropTypes.object.isRequired,
+    setCurrentUser: PropTypes.func.isRequired,
 };
 
-export default MapMarker;
+export default connect(
+    null,
+    { setCurrentUser },
+)(MapMarker);

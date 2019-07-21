@@ -19,7 +19,6 @@ export default styled.div`
         position: absolute;
         top: 15px;
         left: 50%;
-        text-align: center;
         transform: translate(-50%, 0);
         opacity: 0;
         visibility: hidden;

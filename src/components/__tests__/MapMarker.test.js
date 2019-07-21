@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import MapMarker from "../MapMarker";
+import { MapMarker } from "../MapMarker";
 
 const user = {
     name: "Leanne Graham",
@@ -14,7 +14,7 @@ describe("<MapMarker />", () => {
     let wrapper;
 
     beforeEach(() => {
-        wrapper = shallow(<MapMarker user={user} />);
+        wrapper = shallow(<MapMarker user={user} setCurrentUser={() => {}} />);
     });
 
     it("should render", () => {
