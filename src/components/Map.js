@@ -1,26 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import GoogleMapReact from "google-map-react";
-import axios from "axios";
 
+import { useFetchData } from "../hooks/data";
 import StyledMap from "./styles/Map";
 
 const MapMarker = ({ user }) => <div>{user.name}</div>;
 
 const Map = () => {
-    const [data, setdata] = useState(null);
-
-    useEffect(() => {
-        axios
-            .get("https://jsonplaceholder.typicode.com/users")
-            .then(res => setdata(res.data))
-            .catch(err => console.error(err));
-    }, []);
+    const userData = useFetchData("https://jsonplaceholder.typicode.com/users");
 
     return (
         <StyledMap>
-            {data ? (
+            {userData ? (
                 <GoogleMapReact defaultCenter={{ lat: -37.3159, lng: 81.1496 }} defaultZoom={3}>
-                    {data.map(user => (
+                    {userData.map(user => (
                         <MapMarker
                             key={user.id}
                             lat={user.address.geo.lat}
