@@ -3,14 +3,16 @@ import GoogleMapReact from "google-map-react";
 
 import { useFetchData } from "../hooks/data";
 import MapMarker from "./MapMarker";
+import Sidebar from "./Sidebar";
+import Container from "./Container";
 import StyledMap from "./styles/Map";
 
 const Map = () => {
     const userData = useFetchData("https://jsonplaceholder.typicode.com/users");
 
-    return (
-        <StyledMap>
-            {userData ? (
+    return userData ? (
+        <Container>
+            <StyledMap>
                 <GoogleMapReact defaultCenter={{ lat: -37.3159, lng: 81.1496 }} defaultZoom={3}>
                     {userData.map(user => (
                         <MapMarker
@@ -21,10 +23,11 @@ const Map = () => {
                         />
                     ))}
                 </GoogleMapReact>
-            ) : (
-                "Fetching map data..."
-            )}
-        </StyledMap>
+            </StyledMap>
+            <Sidebar />
+        </Container>
+    ) : (
+        "Fetching map data..."
     );
 };
 
