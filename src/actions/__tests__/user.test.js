@@ -1,7 +1,7 @@
 import { setCurrentUser } from "../user";
 import { SET_CURRENT_USER } from "../types";
 
-describe("setCurrentUser", () => {
+describe("setCurrentUser action", () => {
     it("has the correct type", () => {
         const action = setCurrentUser();
 
