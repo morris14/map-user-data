@@ -31,11 +31,11 @@ const data = [
     },
 ];
 
-beforeEach(() => {
-    wrapper = shallow(<Map data={data} />);
-});
-
 describe("<Map />", () => {
+    beforeEach(() => {
+        wrapper = shallow(<Map data={data} />);
+    });
+
     it("should render", () => {
         expect(wrapper).toBeTruthy();
     });
