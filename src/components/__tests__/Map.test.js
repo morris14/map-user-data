@@ -2,9 +2,9 @@ import React from "react";
 import { shallow } from "enzyme";
 import Map from "../Map";
 
-let wrapper;
-
 describe("<Map />", () => {
+    let wrapper;
+
     beforeEach(() => {
         wrapper = shallow(<Map />);
     });
