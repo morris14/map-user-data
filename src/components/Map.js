@@ -2,9 +2,8 @@ import React from "react";
 import GoogleMapReact from "google-map-react";
 
 import { useFetchData } from "../hooks/data";
+import MapMarker from "./MapMarker";
 import StyledMap from "./styles/Map";
-
-const MapMarker = ({ user }) => <div>{user.name}</div>;
 
 const Map = () => {
     const userData = useFetchData("https://jsonplaceholder.typicode.com/users");
